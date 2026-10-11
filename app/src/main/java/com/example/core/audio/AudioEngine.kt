@@ -273,9 +273,9 @@ class AudioEngine(private val context: Context) {
 
         // Candidate directory prefixes to search
         val candidateFolders = listOf(
-            "AR_EG/$folder",
+            "$folder",
             folder,
-            "AR_EG/" + folder.replace("/Dark", "/dark").replace("/Light", "/light").replace("/LATE_NIGHT", "/late_night").replace("/SLEEP_REMINDER", "/sleep_reminder").replace("/Connect", "/connect").replace("/Disconnect", "/disconnect"),
+            folder.replace("/Dark", "/dark").replace("/Light", "/light").replace("/LATE_NIGHT", "/late_night").replace("/SLEEP_REMINDER", "/sleep_reminder").replace("/Connect", "/connect").replace("/Disconnect", "/disconnect"),
             folder.replace("/Dark", "/dark").replace("/Light", "/light").replace("/LATE_NIGHT", "/late_night").replace("/SLEEP_REMINDER", "/sleep_reminder").replace("/Connect", "/connect").replace("/Disconnect", "/disconnect")
         )
 
@@ -321,9 +321,9 @@ class AudioEngine(private val context: Context) {
     fun getAvailableSounds(category: SoundCategory): List<String> {
         val folder = category.folderName
         val candidateFolders = listOf(
-            "AR_EG/$folder",
+            "$folder",
             folder,
-            "AR_EG/" + folder.replace("/Dark", "/dark").replace("/Light", "/light"),
+            folder.replace("/Dark", "/dark").replace("/Light", "/light"),
             folder.replace("/Dark", "/dark").replace("/Light", "/light")
         )
         for (dir in candidateFolders) {

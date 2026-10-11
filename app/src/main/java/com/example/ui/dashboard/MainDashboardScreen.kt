@@ -754,7 +754,7 @@ private fun SoundSandboxSheet(
                 )
             )
             Text(
-                text = "Arabic voice responses (AR_EG) & synthesized assets across all modules.",
+                text = "Synthesized audio assets & synthesized assets across all modules.",
                 style = MaterialTheme.typography.bodySmall.copy(
                     color = BioTextMuted,
                     fontSize = 12.sp
@@ -781,7 +781,7 @@ private fun SoundSandboxSheet(
                                 .padding(12.dp)
                         ) {
                             Text(
-                                text = "Path: AR_EG/${category.folderName}",
+                                text = "Path: ${category.folderName}",
                                 style = MaterialTheme.typography.labelMedium.copy(
                                     fontWeight = FontWeight.Bold,
                                     color = BioVioletLight
