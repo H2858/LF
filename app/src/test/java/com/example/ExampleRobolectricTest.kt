@@ -41,11 +41,11 @@ class ExampleRobolectricTest {
         assertNotNull(SoundCategory.BATTERY_100.folderName)
         assertNotNull(SoundCategory.BATTERY_15.folderName)
         assertNotNull(SoundCategory.POCKET_DARK.folderName)
-        assertEquals("POCKET/Dark", SoundCategory.POCKET_DARK.folderName)
-        assertEquals("POCKET/Light", SoundCategory.POCKET_LIGHT.folderName)
-        assertEquals("SLEEP/LATE_NIGHT", SoundCategory.SLEEP_LATE_NIGHT.folderName)
-        assertEquals("SLEEP/SLEEP_REMINDER", SoundCategory.SLEEP_REMINDER.folderName)
-        assertEquals("CHARGING/Connect", SoundCategory.CHARGING_CONNECT.folderName)
-        assertEquals("CHARGING/Disconnect", SoundCategory.CHARGING_DISCONNECT.folderName)
+        assertEquals("POCKET/dark", SoundCategory.POCKET_DARK.folderName)
+        assertEquals("POCKET/light", SoundCategory.POCKET_LIGHT.folderName)
+        assertEquals("SLEEP/late_night", SoundCategory.SLEEP_LATE_NIGHT.folderName)
+        assertEquals("SLEEP/sleep_reminder", SoundCategory.SLEEP_REMINDER.folderName)
+        assertEquals("CHARGING/connect", SoundCategory.CHARGING_CONNECT.folderName)
+        assertEquals("CHARGING/disconnect", SoundCategory.CHARGING_DISCONNECT.folderName)
     }
 }
