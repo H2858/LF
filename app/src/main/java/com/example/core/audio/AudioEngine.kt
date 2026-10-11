@@ -298,7 +298,6 @@ class AudioEngine(private val context: Context) {
     private fun getSoundFilesInFolder(folder: String): List<String> {
         return try {
             val list = context.assets.list(folder) ?: return emptyList()
-            list.filter { it.endsWith(".mp3") || it.endsWith(".wav") || it.endsWith(".ogg") }
         } catch (e: Exception) {
             emptyList()
         }
