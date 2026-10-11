@@ -169,49 +169,38 @@ class AudioEngine(private val context: Context) {
                 initMediaPlayer()
             }
 
-            var played = false
-            try {
-                val afd: AssetFileDescriptor = context.assets.openFd(assetPath)
-                mediaPlayer?.apply {
-                    reset()
-                    setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
-                    prepare()
-                    start()
-                }
-                afd.close()
-                played = true
-            } catch (e: Exception) {
-                // If openFd throws because asset is compressed, extract to temp file and play
-                Log.w(TAG, "openFd failed for $assetPath, falling back to stream cache: ${e.message}")
-                val tempFile = copyAssetToCache(assetPath)
-                if (tempFile != null) {
-                    mediaPlayer?.apply {
-                        reset()
-                        setDataSource(tempFile.absolutePath)
-                        prepare()
-                        start()
-                    }
-                    played = true
-                }
-            }
-
-            if (played) {
-                isCurrentlyPlaying = true
-                currentPlayingAsset = assetPath
-                _isPlayingFlow.value = true
-                _currentSoundFlow.value = assetPath.substringAfterLast('/')
-
-                startAmplitudeSimulation()
-                Log.d(TAG, "Playing sound: $assetPath with priority ${request.priority}")
-            } else {
+            val tempFile = copyAssetToCache(assetPath)
+            if (tempFile == null || !tempFile.exists()) {
+                Log.e(TAG, "Failed to cache asset: $assetPath")
                 onPlaybackCompleted()
+                return
             }
 
-        } catch (e: IOException) {
-            Log.e(TAG, "IOException reading asset: $assetPath", e)
-            onPlaybackCompleted()
+            mediaPlayer?.apply {
+                reset()
+                setDataSource(tempFile.absolutePath)
+                setOnPreparedListener { mp ->
+                    mp.start()
+                    isCurrentlyPlaying = true
+                    currentPlayingAsset = assetPath
+                    _isPlayingFlow.value = true
+                    _currentSoundFlow.value = assetPath.substringAfterLast('/')
+                    startAmplitudeSimulation()
+                    Log.d(TAG, "Successfully playing sound: $assetPath")
+                }
+                setOnErrorListener { _, what, extra ->
+                    Log.e(TAG, "MediaPlayer error: what=$what, extra=$extra for $assetPath")
+                    onPlaybackCompleted()
+                    true
+                }
+                setOnCompletionListener {
+                    onPlaybackCompleted()
+                }
+                prepareAsync()
+            }
+
         } catch (e: Exception) {
-            Log.e(TAG, "Unexpected error playing asset: $assetPath", e)
+            Log.e(TAG, "Exception during executePlayback for $assetPath", e)
             onPlaybackCompleted()
         }
     }
