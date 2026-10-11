@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Living Phone</string>
+    <string name="notification_channel_name">Living Phone Core</string>
+    <string name="notification_channel_desc">Active background consciousness and sensor telemetry</string>
+    <string name="notification_title">Living Phone Core Active</string>
+    <string name="notification_text">Sensing motion, light, battery, and lifecycle states</string>
+    <string name="service_stopped_title">Living Phone Inactive</string>
+    <string name="service_stopped_desc">Tap to awaken the companion core</string>
+</resources>

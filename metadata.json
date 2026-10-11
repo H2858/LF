@@ -1,0 +1,6 @@
+{
+  "name": "Living Phone",
+  "description": "An autonomous, responsive companion system that reacts organically to device motion, pocket presence, battery, charging, usage, and sleep states with premium dark glassmorphism.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
