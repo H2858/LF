@@ -77,16 +77,16 @@ enum class SoundCategory(
     BATTERY("BATTERY/15", AudioPriority.HIGH),
     BATTERY_100("BATTERY/100", AudioPriority.HIGH),
     BATTERY_15("BATTERY/15", AudioPriority.HIGH),
-    CHARGING("CHARGING/Connect", AudioPriority.HIGH),
-    CHARGING_CONNECT("CHARGING/Connect", AudioPriority.HIGH),
-    CHARGING_DISCONNECT("CHARGING/Disconnect", AudioPriority.HIGH),
+    CHARGING("CHARGING/connect", AudioPriority.HIGH),
+    CHARGING_CONNECT("CHARGING/connect", AudioPriority.HIGH),
+    CHARGING_DISCONNECT("CHARGING/disconnect", AudioPriority.HIGH),
     EXERCISE("EXERCISE", AudioPriority.LOW),
     GENERAL("GENERAL", AudioPriority.LOW),
     MOTION("MOTION", AudioPriority.NORMAL),
-    POCKET_DARK("POCKET/Dark", AudioPriority.NORMAL),
-    POCKET_LIGHT("POCKET/Light", AudioPriority.NORMAL),
-    SLEEP_LATE_NIGHT("SLEEP/LATE_NIGHT", AudioPriority.NORMAL),
-    SLEEP_REMINDER("SLEEP/SLEEP_REMINDER", AudioPriority.LOW),
+    POCKET_DARK("POCKET/dark", AudioPriority.NORMAL),
+    POCKET_LIGHT("POCKET/light", AudioPriority.NORMAL),
+    SLEEP_LATE_NIGHT("SLEEP/late_night", AudioPriority.NORMAL),
+    SLEEP_REMINDER("SLEEP/sleep_reminder", AudioPriority.LOW),
     USAGE("USAGE", AudioPriority.NORMAL);
 
     val parentCategory: String
