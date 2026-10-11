@@ -45,7 +45,7 @@ class ExampleRobolectricTest {
         assertEquals("POCKET/light", SoundCategory.POCKET_LIGHT.folderName)
         assertEquals("SLEEP/late_night", SoundCategory.SLEEP_LATE_NIGHT.folderName)
         assertEquals("SLEEP/sleep_reminder", SoundCategory.SLEEP_REMINDER.folderName)
-        assertEquals("CHARGING/connect", SoundCategory.CHARGING_CONNECT.folderName)
-        assertEquals("CHARGING/disconnect", SoundCategory.CHARGING_DISCONNECT.folderName)
+        assertEquals("CHARGING/Connect", SoundCategory.CHARGING_CONNECT.folderName)
+        assertEquals("CHARGING/Disconnect", SoundCategory.CHARGING_DISCONNECT.folderName)
     }
 }
